@@ -22,5 +22,60 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Security: Prevent clickjacking */
+html[style*="display: none"] {
+  display: none !important;
+}
+
+/* Security: Prevent form submission on enter in inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+textarea {
+  -webkit-autofill: off;
+  -webkit-autocomplete: off;
+}
+
+/* Security: Hide sensitive data from screenshots */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Security: Prevent text selection on sensitive elements */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Security: Disable drag and drop */
+img, a {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+/* Security: Prevent context menu on sensitive elements */
+.no-context-menu {
+  -webkit-context-menu: none;
+  -moz-context-menu: none;
+  context-menu: none;
 }

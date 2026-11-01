@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"cd \\\"C:\\\\Users\\\\DELL\\\\fm-app\\\" && npm run build\",\"description\":\"Run build in fm-app to check for errors\"}",
+  "error": "Exit code 1\n\n> fm-app@0.1.0 build\n> next build\n\n▲ Next.js 16.4.3 (Turbopack)\n⚠ Invalid next.config.ts options detected: \n⚠     Unrecognized key(s) in object: 'serverComponents' at \"experimental\"\n⚠ See more info here: https://nextjs.org/docs/messages/invalid-next-config\n⚠ Warning: Next.js ignored package-lock.json in C:\\Users\\DELL because it is outside the current Git repository (C:\\Users\\DELL\\fm-app).\n To use this directory, set `turbopack.root` in your Next.js config.\n\n✓ Running next.config.ts ...",
+  "timestamp": "2026-11-01T07:42:15.748Z",
+  "retry_count": 1
+}

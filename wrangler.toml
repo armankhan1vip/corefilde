@@ -1,0 +1,44 @@
+name = "corefilde"
+compatibility_date = "2026-11-01"
+pages_build_output_dir = "./.vercel/output/static"
+
+[build]
+command = "npm run build"
+
+[[env.vars]]
+NODE_VERSION = "20"
+SECURITY_MODE = "STRICT"
+JWT_SECRET_KEY = "CHANGE_IN_PRODUCTION"
+
+# Cloudflare Workers bindings configuration
+# D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "core-field-db"
+database_id = "local-db-id"
+
+# R2 Bucket binding for secure photo proof storage (zero egress fees, 10TB+ capacity)
+[[r2_buckets]]
+binding = "PROOFS"
+bucket_name = "core-field-proofs"
+
+# KV Namespace binding for session store
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "local-sessions-id"
+
+# Durable Objects binding for real-time location state
+[[durable_objects.bindings]]
+name = "LOCATION_SYNC"
+class_name = "LOCATION_SYNCDO"
+
+# Security: Rate limiting configuration
+[[rate_limits]]
+binding = "API_RATE_LIMITER"
+threshold = 100
+period = 60
+
+# Security: CORS configuration
+[routes]
+pattern = "corefilde.mayarao-connect.workers.dev/*"
+script = "index"
